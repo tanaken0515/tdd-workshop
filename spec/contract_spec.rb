@@ -58,13 +58,16 @@ RSpec.describe Contract do
   end
 
   describe '#revenue_amount' do
-    subject { contract.revenue_amount }
+    subject { contract.revenue_amount(calculated_on: calculated_on) }
 
     let(:contract) { described_class.new(product: product) }
     let(:product) { Product.new(category: category, name: name, price: price) }
     let(:category) { Category.new(name: 'word_processor') }
     let(:name) { 'MS Word' }
     let(:price) { 18800 }
+
+    let(:calculated_on) { Date.today }
+    let(:signed_on) { Date.today }
 
     context '契約成立前の場合' do
       it '0を返す' do
@@ -74,7 +77,7 @@ RSpec.describe Contract do
 
     context '契約成立済みの場合' do
       before do
-        contract.sign
+        contract.sign(signed_on: signed_on)
       end
 
       it '18800を返す' do
