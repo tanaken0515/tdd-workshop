@@ -9,7 +9,7 @@ class Contract
 
   def sign(signed_on: Date.today)
     @signed_on = signed_on
-    @revenue = 18800
+    @revenue = product.price
 
     self
   end

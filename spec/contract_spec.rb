@@ -20,8 +20,39 @@ RSpec.describe Contract do
     end
 
     context '売上が商品の金額になる' do
-      it '「MS Word」が1つ売れる契約が成立したとき、売上が「18800」になる' do
-        expect(subject.revenue).to eq product.price
+      context '商品が「MS Word」の場合' do
+        it '売上が「18800」になる' do
+          expect(subject.revenue).to eq product.price
+        end
+      end
+
+      context '商品が「一太郎」の場合' do
+        let(:name) { '一太郎' }
+        let(:price) { 20000 }
+
+        it '売上が「20000」になる' do
+          expect(subject.revenue).to eq product.price
+        end
+      end
+
+      context '商品が「一太郎」の場合' do
+        let(:category) { Category.new(name: 'spreadsheet') }
+        let(:name) { 'MS Excel' }
+        let(:price) { 27800 }
+
+        it '売上が「27800」になる' do
+          expect(subject.revenue).to eq product.price
+        end
+      end
+
+      context '商品が「一太郎」の場合' do
+        let(:category) { Category.new(name: 'spreadsheet') }
+        let(:name) { '三四郎' }
+        let(:price) { 5000 }
+
+        it '売上が「5000」になる' do
+          expect(subject.revenue).to eq product.price
+        end
       end
     end
   end
