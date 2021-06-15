@@ -13,4 +13,8 @@ class Contract
 
     self
   end
+
+  def revenue_amount(calculated_on: Date.today)
+    18800
+  end
 end

@@ -56,4 +56,24 @@ RSpec.describe Contract do
       end
     end
   end
+
+  describe '#revenue_amount' do
+    subject { contract.revenue_amount }
+
+    let(:contract) { described_class.new(product: product) }
+    let(:product) { Product.new(category: category, name: name, price: price) }
+    let(:category) { Category.new(name: 'word_processor') }
+    let(:name) { 'MS Word' }
+    let(:price) { 18800 }
+
+    context '契約成立済みの場合' do
+      before do
+        contract.sign
+      end
+
+      it '18800を返す' do
+        expect(subject).to eq 18800
+      end
+    end
+  end
 end
