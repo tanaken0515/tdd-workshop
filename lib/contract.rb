@@ -15,6 +15,8 @@ class Contract
   end
 
   def revenue_amount(calculated_on: Date.today)
+    return 0 if @signed_on.nil? || @signed_on < calculated_on
+
     18800
   end
 end

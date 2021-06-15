@@ -66,6 +66,12 @@ RSpec.describe Contract do
     let(:name) { 'MS Word' }
     let(:price) { 18800 }
 
+    context '契約成立前の場合' do
+      it '0を返す' do
+        expect(subject).to eq 0
+      end
+    end
+
     context '契約成立済みの場合' do
       before do
         contract.sign
