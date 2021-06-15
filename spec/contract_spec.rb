@@ -35,7 +35,7 @@ RSpec.describe Contract do
         end
       end
 
-      context '商品が「一太郎」の場合' do
+      context '商品が「MS Excel」の場合' do
         let(:category) { Category.new(name: 'spreadsheet') }
         let(:name) { 'MS Excel' }
         let(:price) { 27800 }
@@ -45,7 +45,7 @@ RSpec.describe Contract do
         end
       end
 
-      context '商品が「一太郎」の場合' do
+      context '商品が「三四郎」の場合' do
         let(:category) { Category.new(name: 'spreadsheet') }
         let(:name) { '三四郎' }
         let(:price) { 5000 }
