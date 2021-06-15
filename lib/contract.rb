@@ -7,8 +7,8 @@ class Contract
     @product = product
   end
 
-  def sign
-    @signed_on = Date.today
+  def sign(signed_on: Date.today)
+    @signed_on = signed_on
     @revenue = 18800
 
     self
